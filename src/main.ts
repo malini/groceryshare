@@ -3,10 +3,11 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import App from './App.vue'
+//import App from './App.vue'
+import MainApp from './MainApp.vue'
 import router from './router'
 
-const app = createApp(App)
+const app = createApp(MainApp)
 
 app.use(createPinia())
 app.use(router)
