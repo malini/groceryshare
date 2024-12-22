@@ -13,28 +13,32 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 ## Project Setup
 
 ```sh
+cd frontend/
 npm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
+cd frontend/
 npm run dev
 ```
 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
+cd frontend/
 npm run build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
+cd frontend/
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+### Run End-to-End Tests with [Playwright](https://playwright.dev) - Not supported yet
 
 ```sh
 # Install browsers for the first run
@@ -56,5 +60,6 @@ npm run test:e2e -- --debug
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
+cd frontend/
 npm run lint
 ```
