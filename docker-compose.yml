@@ -1,0 +1,33 @@
+version: 'v2.30.3-desktop.1'  # Specify the version of Docker Compose
+
+services:
+  # Backend service
+  backend:
+    build:
+      context: ./backend  # Path to the backend Dockerfile
+      dockerfile: Dockerfile  # Explicitly specify Dockerfile name if it's not the default "Dockerfile"
+    ports:
+      - "3000:3000"  # Map container port to host port (adjust according to your backend's port)
+    environment:
+      - NODE_ENV=production  # Example environment variable for the backend
+    networks:
+      - app-network  # Use a custom network for both services to communicate if necessary
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./frontend  # Path to the frontend Dockerfile
+      dockerfile: Dockerfile  # Explicitly specify Dockerfile name if it's not the default "Dockerfile"
+    ports:
+      - "5173:5173"  # Map container port to host port (adjust according to your frontend's port)
+    depends_on:
+      - backend  # Ensure frontend starts after the backend (if needed)
+    environment:
+      - VITE_API_URL=http://localhost:3000 # Example environment variable for frontend to call backend API
+    networks:
+      - app-network  # Use the same custom network to allow communication between frontend and backend
+
+networks:
+  app-network:  # Custom network for the app
+    driver: bridge  # The default Docker network driver
+
