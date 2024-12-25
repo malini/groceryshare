@@ -10,6 +10,13 @@ services:
       - "3000:3000"  # Map container port to host port (adjust according to your backend's port)
     environment:
       - NODE_ENV=production  # Example environment variable for the backend
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=groceryshare
+    depends_on:
+      - mysql
     networks:
       - app-network  # Use a custom network for both services to communicate if necessary
 
@@ -27,7 +34,25 @@ services:
     networks:
       - app-network  # Use the same custom network to allow communication between frontend and backend
 
+  # MySQL db
+  mysql:
+    image: mysql:8.0  # Official MySQL Docker image
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: groceryshare
+      MYSQL_USER: backendcontainer
+      MYSQL_PASSWORD: backendcontainerpassword
+    ports:
+      - "3306:3306"  # Expose MySQL on port 3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist data in a volume
+    networks:
+      - app-network
 networks:
   app-network:  # Custom network for the app
     driver: bridge  # The default Docker network driver
 
+volumes:
+  mysql_data:  # Persistent volume for MySQL data
