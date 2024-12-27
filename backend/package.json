@@ -1,11 +1,13 @@
 {
   "name": "groceryshare-backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "backend apis that power groceryshare",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon - exec 'tsx' src/index.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js"
   },
   "author": "malini",
   "license": "MPL-2.0",
@@ -14,9 +16,16 @@
   },
   "homepage": "https://github.com/malini/groceryshare#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "-": "^0.0.1",
+    "@prisma/client": "^6.1.0",
+    "express": "^4.21.2",
+    "prisma": "^6.1.0",
+    "save-dev": "^0.0.1-security",
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.9",
+    "tsx": "^4.19.2"
   }
 }

@@ -15,5 +15,6 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run the app
-CMD [ "npm", "start" ]
-
+RUN npx prisma generate
+CMD [ "npm", "run", "build" ]
+CMD [ "npm", "run", "serve" ]

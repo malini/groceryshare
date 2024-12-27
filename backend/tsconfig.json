@@ -1,0 +1,15 @@
+{
+"compilerOptions": {
+  "module": "node16",
+  "baseUrl": "./",
+  "resolveJsonModule": true,
+  "allowJs": true,
+  "esModuleInterop": true,
+  "target": "es2021",
+  "moduleResolution": "node16",
+  "sourceMap": true,
+  "outDir": "dist"
+},
+"lib": ["es2021"],
+"exclude": ["node_modules", "dist"]
+}
