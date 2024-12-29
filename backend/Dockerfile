@@ -16,6 +16,6 @@ EXPOSE 3000
 
 # Define the command to run the app
 RUN npx prisma generate
-#RUN npx prisma migrate dev
+#RUN npx prisma migrate dev --name init
 CMD [ "npm", "run", "build" ]
 CMD [ "npm", "run", "serve" ]

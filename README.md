@@ -17,3 +17,11 @@ Install [Docker Desktop](https://www.docker.com/get-started/), then you can buil
 ```sh
 docker compose up --build
 ```
+
+Database updates aren't hooked up correctly, so you'll have to open a shell to the backend container and run
+
+```sh
+npx prisma migrate dev --name init
+```
+
+And select `y` to run the migrations

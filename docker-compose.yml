@@ -37,13 +37,12 @@ services:
   # MySQL db
   mysql:
     image: mysql:8.0  # Official MySQL Docker image
-    container_name: mysql_container
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: groceryshare
-      MYSQL_USER: backendcontainer
-      MYSQL_PASSWORD: backendcontainerpassword
+      MYSQL_USER: root 
+      MYSQL_PASSWORD: rootpassword
     ports:
       - "3306:3306"  # Expose MySQL on port 3306
     volumes:
