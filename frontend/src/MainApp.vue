@@ -5,7 +5,6 @@
       <NavBarComponent :isNavbarOpen="isNavbarOpen" />
       <MainContentComponent />
     </div>
-    <FooterComponent />
   </div>
 </template>
 
@@ -14,7 +13,6 @@ import { defineComponent, ref } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 import NavBarComponent from './components/NavBarComponent.vue'
 import MainContentComponent from './components/MainContentComponent.vue'
-import FooterComponent from './components/FooterComponent.vue'
 
 export default defineComponent({
   name: 'MainApp',
@@ -22,7 +20,6 @@ export default defineComponent({
     HeaderComponent,
     NavBarComponent,
     MainContentComponent,
-    FooterComponent,
   },
   setup() {
     // Reactive state for navbar toggle
