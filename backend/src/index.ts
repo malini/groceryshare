@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.get('/', async (req, res) => {
   try {
-    //@ts-ignore
+    // @ts-ignore
     const users = await prisma.user.findMany();
     res.json(users);
   } catch (err) {
@@ -18,7 +18,7 @@ app.get('/', async (req, res) => {
 app.post('/users', async (req, res) => {
   const { name, email, location } = req.body;
   try {
-    //@ts-ignore
+    // @ts-ignore
     const newUser = await prisma.user.create({
       data: {
         name,
