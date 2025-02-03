@@ -32,4 +32,6 @@ coverage
 test-results/
 playwright-report/
 
-/mysql_data/mysql.sock
+# Persistent volumes for docker
+postgres_data/
+mysql_data/
