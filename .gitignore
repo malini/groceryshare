@@ -32,5 +32,4 @@ coverage
 test-results/
 playwright-report/
 
-# keycloak postgres db
-postgres-data/
+/mysql_data/mysql.sock

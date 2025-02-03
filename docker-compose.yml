@@ -12,8 +12,8 @@ services:
       - NODE_ENV=production  # Example environment variable for the backend
       - DB_HOST=mysql
       - DB_PORT=3306
-      - DB_USER=root
-      - DB_PASSWORD=rootpassword
+      - DB_USER=admin
+      - DB_PASSWORD=adminpassword
       - DB_NAME=groceryshare
     depends_on:
       - mysql
@@ -39,14 +39,14 @@ services:
     image: mysql:8.0  # Official MySQL Docker image
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: adminpassword
       MYSQL_DATABASE: groceryshare
-      MYSQL_USER: root 
-      MYSQL_PASSWORD: rootpassword
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: adminpassword
     ports:
       - "3306:3306"  # Expose MySQL on port 3306
     volumes:
-      - mysql_data:/var/lib/mysql  # Persist data in a volume
+      - ./mysql_data:/var/lib/mysql  # Persist data in a volume
     networks:
       - app-network
     healthcheck:
@@ -61,7 +61,7 @@ services:
       POSTGRES_USER: admin
       POSTGRES_DB: pdb
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data
   keycloak:
     image: quay.io/keycloak/keycloak:20.0
     environment:
