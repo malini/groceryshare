@@ -18,10 +18,16 @@ Install [Docker Desktop](https://www.docker.com/get-started/), then you can buil
 docker compose up --build
 ```
 
-Database updates aren't hooked up correctly, so you'll have to open a shell to the backend container and run
+## Issues:
+
+### Prisma migrations
+if we ever need to blow away the mysql db, then you can rerun migrations against a new db. You'll have to open a shell to the backend container and run
 
 ```sh
 npx prisma migrate dev --name init
 ```
 
 And select `y` to run the migrations
+
+### Mysql sock errors
+If your mysql container is thrashing with mysql.sock errors, kill the container, remove the mysql\_data/mysql.sock file and restart the container
