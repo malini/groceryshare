@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "description": "backend apis that power groceryshare",
-  "main": "index.js",
+  "main": "trpc.js",
   "scripts": {
-    "dev": "nodemon - exec 'tsx' src/index.ts",
+    "dev": "nodemon - exec 'tsx' src/trpc.ts",
     "lint": "npx tslint src/**/*.ts",
     "build": "tsc",
-    "serve": "node dist/index.js"
+    "serve": "node dist/trpc.js"
   },
   "author": "malini",
   "license": "MPL-2.0",
@@ -19,10 +19,12 @@
   "dependencies": {
     "-": "^0.0.1",
     "@prisma/client": "^6.1.0",
+    "@trpc/server": "^10.45.2",
     "express": "^4.21.2",
     "prisma": "^6.1.0",
     "save-dev": "^0.0.1-security",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

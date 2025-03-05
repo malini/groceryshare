@@ -29,8 +29,16 @@ services:
       - "5173:5173"  # Map container port to host port (adjust according to your frontend's port)
     depends_on:
       - backend  # Ensure frontend starts after the backend (if needed)
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+            - dist/
     environment:
-      - VITE_API_URL=http://localhost:3000 # Example environment variable for frontend to call backend API
+      - VITE_API_URL=http://backend:3000 # Example environment variable for frontend to call backend API
     networks:
       - app-network  # Use the same custom network to allow communication between frontend and backend
 

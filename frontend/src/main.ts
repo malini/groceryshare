@@ -20,7 +20,7 @@ try {
         console.log('User is authenticated');
     } else {
         console.log('User is not authenticated');
-        keycloak.login({ action: "register" });
+        keycloak.login();
     }
 } catch (error) {
     console.error('Failed to initialize adapter:', error);
