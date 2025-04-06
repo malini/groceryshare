@@ -38,7 +38,7 @@ services:
             - node_modules/
             - dist/
     environment:
-      - VITE_API_URL=http://backend:3000 # Example environment variable for frontend to call backend API
+      - VITE_API_URL=http://localhost:3000
     networks:
       - app-network  # Use the same custom network to allow communication between frontend and backend
 
@@ -54,6 +54,7 @@ services:
     ports:
       - "3306:3306"  # Expose MySQL on port 3306
     volumes:
+      - ./backend:/app
       - ./mysql_data:/var/lib/mysql  # Persist data in a volume
     networks:
       - app-network
