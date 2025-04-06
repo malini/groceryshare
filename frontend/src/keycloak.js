@@ -6,6 +6,7 @@ const keycloak = new Keycloak({
   realm: "groceryshare",
   clientId: "groceryshare-frontend",
   checkLoginIframe: false,
+  pkceMethod: 'S256',
 });
 
 export default keycloak;

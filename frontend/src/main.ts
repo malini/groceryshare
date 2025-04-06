@@ -22,12 +22,16 @@ console.log(resp);
 resp = await trpc.getUser.query('asdf');
 console.log(resp);
 try {
-    const authenticated = await keycloak.init();
+
+    const authenticated = await keycloak.init({
+      onLoad: 'check-sso',
+      silentCheckSsoRedirectUri: `${location.origin}/silent-check-sso.html`,
+    });
     if (authenticated) {
         console.log('User is authenticated');
     } else {
         console.log('User is not authenticated, requesting login');
-        //keycloak.login();
+        keycloak.login();
     }
 } catch (error) {
     console.error('Failed to initialize adapter:', error);

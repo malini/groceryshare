@@ -17,6 +17,8 @@ Even though I know most users don't _really_ care about information sharing, if 
 
 To set up the app's keycloak config after running the docker compose up command, navigate to http://localhost:9999, and access the admin panel using username: `admin`,  password: `admin`. Follow the [setup steps](https://www.keycloak.org/getting-started/getting-started-docker) to create a Realm named 'groceryshare', and in the Login settings, turn on 'User Registration'. Create a User with a test user set up with username: testuser, password: password. Create a Client with type "OpenID Connect", set the client ID to groceryshare-frontend, and set  Valid redirect URIs and Web origins to http://localhost:5173
 
+**IMPORTANT:** set the Web Origins for your client application to be the your origin's url WITHOUT A TRAILING SLASH (ex: http://localhost:5173 and not http://localhost:5173/). Trailing slashes here cause CORS issues. Set the "Valid redirect URI's to your origin followed by a forward slash and star, ex: http://localhost:5173/*
+
 # Frontend development
 ## Design choices
 Use em/rem/% where possible for accessibility. If using viewport units for things, beware that Safari on iOS has tricky behaviour with it.
