@@ -17,6 +17,8 @@ services:
       - DB_NAME=groceryshare
     depends_on:
       - mysql
+    volumes:
+      - ./backend:/usr/src/app
     networks:
       - app-network  # Use a custom network for both services to communicate if necessary
 

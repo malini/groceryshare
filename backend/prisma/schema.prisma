@@ -17,6 +17,11 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  location  String   @unique
   createdAt DateTime @default(now())
+}
+
+model UserProfile {
+  id        Int      @id @default(autoincrement())
+  displayName String
+  location  String
 }
